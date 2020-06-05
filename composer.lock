@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8da3ec5ab020ff955537ff8fbe788076",
+    "content-hash": "53d5677056468a627654fc46e3590697",
     "packages": [
         {
             "name": "brick/math",
@@ -2153,7 +2153,7 @@
         },
         {
             "name": "ozitag/tager-backend-core",
-            "version": "1.0",
+            "version": "0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ozitag/tager-backend-core.git",

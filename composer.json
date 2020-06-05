@@ -16,7 +16,7 @@
     "doctrine/dbal": "^2.10",
     "laravel/passport": "^9.2",
     "laravel/framework": "^7.0",
-    "ozitag/tager-backend-core": "^1.0"
+    "ozitag/tager-backend-core": "^0.1"
   },
   "autoload": {
     "psr-4": {
