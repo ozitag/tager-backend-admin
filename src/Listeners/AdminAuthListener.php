@@ -5,21 +5,21 @@ namespace OZiTAG\Tager\Backend\Admin\Listeners;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Request;
 use Laravel\Passport\Events\AccessTokenCreated;
-use OZiTAG\Tager\Backend\Admin\Repositories\AdminAuthLogRepository;
+use OZiTAG\Tager\Backend\Admin\Repositories\SeoPageRepository;
 
 class AdminAuthListener implements ShouldQueue
 {
     /**
-     * @var AdminAuthLogRepository
+     * @var SeoPageRepository
      */
     private $repository;
 
     /**
      * Create the event listener.
      *
-     * @param AdminAuthLogRepository $repository
+     * @param SeoPageRepository $repository
      */
-    public function __construct(AdminAuthLogRepository $repository)
+    public function __construct(SeoPageRepository $repository)
     {
         $this->repository = $repository;
     }
