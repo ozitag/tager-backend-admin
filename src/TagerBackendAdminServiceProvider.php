@@ -3,6 +3,7 @@
 namespace OZiTAG\Tager\Backend\Admin;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider;
+use Illuminate\Support\Facades\Route;
 use Laravel\Passport\Events\AccessTokenCreated;
 use OZiTAG\Tager\Backend\Admin\Listeners\AdminAuthListener;
 
@@ -34,6 +35,10 @@ class TagerBackendAdminServiceProvider extends EventServiceProvider
         parent::boot();
 
         $this->loadRoutesFrom(__DIR__ . '/../routes/routes.php');
+
+        Route::prefix('admin')
+            ->middleware(['passport:administrators', 'auth:api'])
+            ->group(base_path('routes/admin.php'));
 
         $this->loadMigrationsFrom(__DIR__ . '/../migrations');
     }
