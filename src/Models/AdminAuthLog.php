@@ -8,7 +8,7 @@ class AdminAuthLog extends Model
 {
     const UPDATED_AT = null;
 
-    protected $table = 'administrator_auth_logs';
+    protected $table = 'tager_administrator_auth_logs';
 
     /**
      * The attributes that are mass assignable.

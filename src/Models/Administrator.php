@@ -11,7 +11,7 @@ class Administrator extends Authenticatable
 {
     use Notifiable, HasApiTokens, SoftDeletes;
 
-    protected $table = 'administrators';
+    protected $table = 'tager_administrators';
 
     /**
      * The attributes that are mass assignable.
