@@ -6,6 +6,7 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider;
 use Illuminate\Support\Facades\Route;
 use Laravel\Passport\Events\AccessTokenCreated;
 use Laravel\Passport\Token;
+use Laravel\Passport\Passport;
 use App\Observers\TokenObserver;
 use OZiTAG\Tager\Backend\Admin\Listeners\AdminAuthListener;
 
@@ -35,6 +36,9 @@ class TagerBackendAdminServiceProvider extends EventServiceProvider
     public function boot()
     {
         parent::boot();
+
+
+        Passport::routes(null, ['prefix' => 'oauth', 'middleware' => ['passport']]);
 
         Token::observe(TokenObserver::class);
 
