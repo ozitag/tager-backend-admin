@@ -5,6 +5,8 @@ namespace OZiTAG\Tager\Backend\Admin;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider;
 use Illuminate\Support\Facades\Route;
 use Laravel\Passport\Events\AccessTokenCreated;
+use Laravel\Passport\Token;
+use App\Observers\TokenObserver;
 use OZiTAG\Tager\Backend\Admin\Listeners\AdminAuthListener;
 
 class TagerBackendAdminServiceProvider extends EventServiceProvider
@@ -33,6 +35,8 @@ class TagerBackendAdminServiceProvider extends EventServiceProvider
     public function boot()
     {
         parent::boot();
+
+        Token::observe(TokenObserver::class);
 
         $this->loadRoutesFrom(__DIR__ . '/../routes/routes.php');
 
