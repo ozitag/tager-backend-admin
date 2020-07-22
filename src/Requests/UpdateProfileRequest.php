@@ -14,7 +14,7 @@ class UpdateProfileRequest extends FormRequest
 
         return [
             'name' => 'required|string',
-            'email' => ['required', 'string', 'email', 'unique:administrators,email,' . $user->id]
+            'email' => ['required', 'string', 'email', 'unique:tager_administrators,email,' . $user->id]
         ];
     }
 }
