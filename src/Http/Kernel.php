@@ -3,8 +3,6 @@
 namespace OZiTAG\Tager\Backend\Admin\Http;
 
 use OZiTAG\Tager\Backend\Core\Http\Kernel as HttpKernel;
-use OZiTAG\Tager\Backend\HttpCache\Middleware\CacheHttp;
-use OZiTAG\Tager\Backend\HttpCache\Middleware\DoNotCacheHttp;
 
 class Kernel extends HttpKernel
 {
@@ -17,8 +15,8 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
-        'api.cache' => CacheHttp::class,
-        'api.disable-cache' => DoNotCacheHttp::class,
-        'passport' => \App\Http\Middleware\Passport::class,
+        'api.cache' => OZiTAG\Tager\Backend\HttpCache\Middleware\CacheHttp::class,
+        'api.disable-cache' => OZiTAG\Tager\Backend\HttpCache\Middleware\DoNotCacheHttp::class,
+        'passport' => OZiTAG\Tager\Backend\Admin\Middlewares\Passport::class,
     ];
 }
