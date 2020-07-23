@@ -15,8 +15,8 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
-        'api.cache' => OZiTAG\Tager\Backend\HttpCache\Middleware\CacheHttp::class,
-        'api.disable-cache' => OZiTAG\Tager\Backend\HttpCache\Middleware\DoNotCacheHttp::class,
-        'passport' => OZiTAG\Tager\Backend\Admin\Middlewares\Passport::class,
+        'api.cache' => \OZiTAG\Tager\Backend\HttpCache\Middleware\CacheHttp::class,
+        'api.disable-cache' => \OZiTAG\Tager\Backend\HttpCache\Middleware\DoNotCacheHttp::class,
+        'passport' => \OZiTAG\Tager\Backend\Admin\Middlewares\Passport::class,
     ];
 }
