@@ -1,6 +1,6 @@
 <?php
 
-namespace OZiTAG\Tager\Backend\Admin;
+namespace OZiTAG\Tager\Backend\Admin\Http;
 
 use OZiTAG\Tager\Backend\Core\Http\Kernel as HttpKernel;
 use OZiTAG\Tager\Backend\HttpCache\Middleware\CacheHttp;
