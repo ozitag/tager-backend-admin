@@ -2,7 +2,7 @@
 
 namespace OZiTAG\Tager\Backend\Admin;
 
-use OZiTAG\Tager\Backend\Core\Kernel\HttpKernel as HttpKernel;
+use OZiTAG\Tager\Backend\Core\Http\Kernel as HttpKernel;
 use OZiTAG\Tager\Backend\HttpCache\Middleware\CacheHttp;
 use OZiTAG\Tager\Backend\HttpCache\Middleware\DoNotCacheHttp;
 
