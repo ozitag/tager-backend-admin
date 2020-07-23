@@ -2,8 +2,7 @@
 
 namespace OZiTAG\Tager\Backend\Admin\Requests;
 
-use OZiTAG\Tager\Backend\Core\FormRequest;
-use Ozerich\FileStorage\Rules\FileRule;
+use OZiTAG\Tager\Backend\Core\Http\FormRequest;
 
 class ChangePasswordRequest extends FormRequest
 {

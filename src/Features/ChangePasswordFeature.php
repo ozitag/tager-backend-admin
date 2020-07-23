@@ -5,10 +5,8 @@ namespace OZiTAG\Tager\Backend\Admin\Features;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\ValidationException;
-use Illuminate\Auth\RequestGuard;
-use OZiTAG\Tager\Backend\Core\Feature;
-use OZiTAG\Tager\Backend\Core\SuccessResource;
+use OZiTAG\Tager\Backend\Core\Features\Feature;
+use OZiTAG\Tager\Backend\Core\Resources\SuccessResource;
 use OZiTAG\Tager\Backend\Admin\Requests\ChangePasswordRequest;
 
 class ChangePasswordFeature extends Feature

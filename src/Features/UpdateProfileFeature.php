@@ -5,7 +5,7 @@ namespace OZiTAG\Tager\Backend\Admin\Features;
 use Illuminate\Support\Facades\Auth;
 use OZiTAG\Tager\Backend\Admin\Requests\UpdateProfileRequest;
 use OZiTAG\Tager\Backend\Admin\Resources\ProfileResource;
-use OZiTAG\Tager\Backend\Core\Feature;
+use OZiTAG\Tager\Backend\Core\Features\Feature;
 
 class UpdateProfileFeature extends Feature
 {

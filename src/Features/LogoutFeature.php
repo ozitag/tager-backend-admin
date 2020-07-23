@@ -3,8 +3,8 @@
 namespace OZiTAG\Tager\Backend\Admin\Features;
 
 use Illuminate\Support\Facades\Auth;
-use OZiTAG\Tager\Backend\Core\Feature;
-use OZiTAG\Tager\Backend\Core\SuccessResource;
+use OZiTAG\Tager\Backend\Core\Features\Feature;
+use OZiTAG\Tager\Backend\Core\Resources\SuccessResource;
 
 class LogoutFeature extends Feature
 {
