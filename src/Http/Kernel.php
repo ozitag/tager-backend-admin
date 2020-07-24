@@ -18,5 +18,6 @@ class Kernel extends HttpKernel
         'api.cache' => \OZiTAG\Tager\Backend\HttpCache\Middleware\CacheHttp::class,
         'api.disable-cache' => \OZiTAG\Tager\Backend\HttpCache\Middleware\DoNotCacheHttp::class,
         'passport' => \OZiTAG\Tager\Backend\Admin\Middlewares\Passport::class,
+        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
 }
