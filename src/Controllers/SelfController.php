@@ -2,7 +2,7 @@
 
 namespace OZiTAG\Tager\Backend\Admin\Controllers;
 
-use OZiTAG\Tager\Backend\Core\Controller;
+use OZiTAG\Tager\Backend\Core\Controllers\Controller;
 use OZiTAG\Tager\Backend\Admin\Features\ChangePasswordFeature;
 use OZiTAG\Tager\Backend\Admin\Features\GetProfileFeature;
 use OZiTAG\Tager\Backend\Admin\Features\LogoutFeature;
