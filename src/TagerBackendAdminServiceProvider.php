@@ -37,16 +37,11 @@ class TagerBackendAdminServiceProvider extends EventServiceProvider
     {
         parent::boot();
 
-
-        Passport::routes(null, ['prefix' => 'oauth', 'middleware' => ['passport']]);
-
-        Token::observe(TokenObserver::class);
-
         $this->loadRoutesFrom(__DIR__ . '/../routes/routes.php');
 
         if (is_file(base_path('routes/admin.php'))) {
             Route::prefix('admin')
-                ->middleware(['passport:administrators', 'auth:api'])
+                ->middleware(['provider:administrators', 'auth:api'])
                 ->group(base_path('routes/admin.php'));
         }
 
