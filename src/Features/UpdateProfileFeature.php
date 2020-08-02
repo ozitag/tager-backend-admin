@@ -3,19 +3,21 @@
 namespace OZiTAG\Tager\Backend\Admin\Features;
 
 use Illuminate\Support\Facades\Auth;
+use OZiTAG\Tager\Backend\Admin\Repositories\AdministratorRepository;
 use OZiTAG\Tager\Backend\Admin\Requests\UpdateProfileRequest;
 use OZiTAG\Tager\Backend\Admin\Resources\ProfileResource;
 use OZiTAG\Tager\Backend\Core\Features\Feature;
 
 class UpdateProfileFeature extends Feature
 {
-    public function handle(UpdateProfileRequest $request)
+    public function handle(UpdateProfileRequest $request, AdministratorRepository $repository)
     {
-        $user = Auth::user();
+        $repository->setById($this->user()->id);
 
-        $user->email = $request->email;
-        $user->name = $request->name;
-        $user->save();
+        $user = $repository->fillAndSave([
+            'email' => $request->get('email'),
+            'name' => $request->get('name'),
+        ]);
 
         return new ProfileResource($user);
     }

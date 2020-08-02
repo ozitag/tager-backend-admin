@@ -5,32 +5,20 @@ namespace OZiTAG\Tager\Backend\Admin\Features;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use OZiTAG\Tager\Backend\Admin\Repositories\AdministratorRepository;
 use OZiTAG\Tager\Backend\Core\Features\Feature;
 use OZiTAG\Tager\Backend\Core\Resources\SuccessResource;
 use OZiTAG\Tager\Backend\Admin\Requests\ChangePasswordRequest;
 
 class ChangePasswordFeature extends Feature
 {
-    public function handle(ChangePasswordRequest $request)
+    public function handle(ChangePasswordRequest $request, AdministratorRepository $repository)
     {
-        $user = Auth::user();
+        $repository->setById($this->user()->id);
 
-        $check = Hash::check($request->oldPassword, $user->password);
-
-        if (!$check) {
-            throw new HttpResponseException(response()->json([
-                'errors' => [
-                    'oldPassword' => [
-                        'code' => 'INVALID_PASSWORD',
-                        'message' => 'Invalid password'
-                    ]
-                ],
-            ], 400));
-        }
-
-        $request->user()->fill([
+        $repository->fillAndSave([
             'password' => Hash::make($request->newPassword)
-        ])->save();
+        ]);
 
         return new SuccessResource();
     }
