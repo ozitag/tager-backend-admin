@@ -9,7 +9,7 @@ use Laravel\Passport\Token;
 use Laravel\Passport\Passport;
 use OZiTAG\Tager\Backend\Admin\Listeners\AdminAuthListener;
 use OZiTAG\Tager\Backend\Admin\Observers\TokenObserver;
-use OZiTAG\Tager\Backend\Auth\TagerBackendAuthServiceProvider;
+use OZiTAG\Tager\Backend\Auth\AuthServiceProvider;
 
 class AdminServiceProvider extends EventServiceProvider
 {
@@ -21,7 +21,7 @@ class AdminServiceProvider extends EventServiceProvider
 
     public function register()
     {
-        $this->app->register(TagerBackendAuthServiceProvider::class);
+        $this->app->register(AuthServiceProvider::class);
     }
 
     /**
