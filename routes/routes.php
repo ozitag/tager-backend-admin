@@ -7,4 +7,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['provider:administrators', '
     Route::post('/self', OZiTAG\Tager\Backend\Admin\Controllers\SelfController::class . '@updateProfile');
     Route::post('/self/password', OZiTAG\Tager\Backend\Admin\Controllers\SelfController::class . '@changePassword');
     Route::post('/self/logout', OZiTAG\Tager\Backend\Admin\Controllers\SelfController::class . '@logout');
+
 });
+
+Route::apiResource('admins', \OZiTAG\Tager\Backend\Admin\Controllers\AdminsController::class);

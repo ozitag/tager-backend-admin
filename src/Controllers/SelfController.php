@@ -3,10 +3,10 @@
 namespace OZiTAG\Tager\Backend\Admin\Controllers;
 
 use OZiTAG\Tager\Backend\Core\Controllers\Controller;
-use OZiTAG\Tager\Backend\Admin\Features\ChangePasswordFeature;
-use OZiTAG\Tager\Backend\Admin\Features\GetProfileFeature;
-use OZiTAG\Tager\Backend\Admin\Features\LogoutFeature;
-use OZiTAG\Tager\Backend\Admin\Features\UpdateProfileFeature;
+use OZiTAG\Tager\Backend\Admin\Features\Self\ChangePasswordFeature;
+use OZiTAG\Tager\Backend\Admin\Features\Self\GetProfileFeature;
+use OZiTAG\Tager\Backend\Admin\Features\Self\LogoutFeature;
+use OZiTAG\Tager\Backend\Admin\Features\Self\UpdateProfileFeature;
 
 class SelfController extends Controller
 {
