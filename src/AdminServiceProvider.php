@@ -37,7 +37,7 @@ class AdminServiceProvider extends EventServiceProvider
 
         if (is_file(base_path('routes/admin.php'))) {
             Route::prefix('admin')
-                ->middleware(['provider:administrators', 'auth:api'])
+                ->middleware(['passport:administrators', 'auth:api'])
                 ->group(base_path('routes/admin.php'));
         }
 
