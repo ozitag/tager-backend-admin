@@ -28,4 +28,16 @@ class Administrator extends Authenticatable
     public function roles() {
         return $this->belongsToMany(Role::class, 'tager_administrator_roles','administrator_id', 'role_id');
     }
+
+    public function getScopesForRbac() {
+        return explode(',', $this->roles()
+            ->pluck('scopes')
+            ->implode(','));
+    }
+
+    public function getRolesForRbac() {
+        return $this->roles()
+            ->pluck('tager_roles.id')
+            ->toArray();
+    }
 }
