@@ -6,14 +6,19 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider;
 use Illuminate\Support\Facades\Route;
 use Laravel\Passport\Events\AccessTokenCreated;
 use OZiTAG\Tager\Backend\Admin\Listeners\AdminAuthListener;
+use OZiTAG\Tager\Backend\Admin\Listeners\DeleteAdminRoleListener;
 use OZiTAG\Tager\Backend\Admin\Observers\TokenObserver;
 use OZiTAG\Tager\Backend\Auth\AuthServiceProvider;
+use OZiTAG\Tager\Backend\Rbac\Events\TagerRoleDeleted;
 
 class AdminServiceProvider extends EventServiceProvider
 {
     protected $listen = [
         AccessTokenCreated::class => [
             AdminAuthListener::class
+        ],
+        TagerRoleDeleted::class => [
+            DeleteAdminRoleListener::class
         ],
     ];
 

@@ -11,4 +11,9 @@ class AdministratorRoleRepository extends EloquentRepository
     {
         parent::__construct($model);
     }
+
+    public function deleteRoleLinksById(int $id) {
+        $this->model->whereRoleId($id)->delete();
+    }
+
 }
