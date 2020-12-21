@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 use OZiTAG\Tager\Backend\Admin\Controllers\SelfController;
-use OZiTAG\Tager\Backend\Admin\Controllers\UploadController;
+use OZiTAG\Tager\Backend\Files\TagerBackendFilesController;
 
 Route::group(['prefix' => 'admin', 'middleware' => ['passport:administrators', 'auth:api']], function () {
-    Route::post('/upload', [UploadController::class, 'index']);
+    Route::post('/upload', [TagerBackendFilesController::class, 'upload']);
 
     Route::get('/self', [SelfController::class, 'getProfile']);
     Route::post('/self', [SelfController::class, 'updateProfile']);
