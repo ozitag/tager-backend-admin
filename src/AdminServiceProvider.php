@@ -5,17 +5,24 @@ namespace OZiTAG\Tager\Backend\Admin;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider;
 use Illuminate\Support\Facades\Route;
 use Laravel\Passport\Events\AccessTokenCreated;
-use OZiTAG\Tager\Backend\Admin\Listeners\AdminAuthListener;
+use OZiTAG\Tager\Backend\Admin\Listeners\AdminAuthAttemptListener;
+use OZiTAG\Tager\Backend\Admin\Listeners\AdminSuccessAuthListener;
 use OZiTAG\Tager\Backend\Admin\Listeners\DeleteAdminRoleListener;
 use OZiTAG\Tager\Backend\Admin\Observers\TokenObserver;
 use OZiTAG\Tager\Backend\Auth\AuthServiceProvider;
+use OZiTAG\Tager\Backend\Auth\Events\TagerAuthRequest;
+use OZiTAG\Tager\Backend\Auth\Events\TagerAuthSuccessRequest;
+use OZiTAG\Tager\Backend\Auth\Events\TagerSuccessAuthRequest;
 use OZiTAG\Tager\Backend\Rbac\Events\TagerRoleDeleted;
 
 class AdminServiceProvider extends EventServiceProvider
 {
     protected $listen = [
-        AccessTokenCreated::class => [
-            AdminAuthListener::class
+        TagerAuthRequest::class => [
+            AdminAuthAttemptListener::class
+        ],
+        TagerSuccessAuthRequest::class => [
+            AdminSuccessAuthListener::class
         ],
         TagerRoleDeleted::class => [
             DeleteAdminRoleListener::class
@@ -24,6 +31,7 @@ class AdminServiceProvider extends EventServiceProvider
 
     public function register()
     {
+        parent::register();
         $this->app->register(AuthServiceProvider::class);
     }
 

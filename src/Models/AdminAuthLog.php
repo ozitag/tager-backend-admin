@@ -17,6 +17,11 @@ class AdminAuthLog extends Model
      */
     protected $fillable = [
         'ip',
-        'administrator_id'
+        'administrator_id',
+        'grant_type',
+        'email',
+        'user_agent',
+        'auth_success',
+        'uuid'
     ];
 }

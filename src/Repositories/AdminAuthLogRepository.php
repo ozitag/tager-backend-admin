@@ -11,4 +11,12 @@ class AdminAuthLogRepository extends EloquentRepository
     {
         parent::__construct($model);
     }
+
+    /**
+     * @param string $uuid
+     * @return AdminAuthLog|null
+     */
+    public function findByUuid(string $uuid): ?AdminAuthLog {
+        return $this->model->whereUuid($uuid)->first();
+    }
 }
