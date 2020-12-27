@@ -33,7 +33,7 @@ class AdminAuthLogRepository extends EloquentRepository implements ISearchable
             $builder->where('email', 'LIKE', "%$query%")
                 ->orWhere('administrator_id', '=', $query)
                 ->orWhere('user_agent', 'LIKE', "%$query%")
-                ->orWhere('ip', '=', "$query%");
+                ->orWhere('ip', 'LIKE', "$query%");
         })->orderByDesc('id');
     }
 }
