@@ -45,6 +45,7 @@ class AdminAuthAttemptListener implements ShouldQueue
             'user_agent' => $event->user_agent,
             'email' => $event->email,
             'ip' => $event->ip,
+            'auth_success' => $event->success ?? false,
         ]);
     }
 }

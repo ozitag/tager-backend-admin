@@ -21,6 +21,7 @@ class AdminAuthLogResource extends JsonResource
             'administratorId' => $this->administrator_id,
             'userAgent' => $this->user_agent,
             'authSuccess' => (boolean) $this->auth_success,
+            'grantType' => $this->grant_type,
         ];
     }
 }
