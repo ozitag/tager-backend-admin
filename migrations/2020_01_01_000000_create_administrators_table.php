@@ -24,7 +24,7 @@ class CreateAdministratorsTable extends Migration
 
         \Illuminate\Support\Facades\DB::table('administrators')->insert([
             'name' => 'Vital Ozierski',
-            'email' => 'admin@ozitag.com',
+            'email' => 'v.ozierski@ozitag.com',
             'password' => \Illuminate\Support\Facades\Hash::make('admin'),
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
