@@ -13,7 +13,7 @@ class AdminDropUniqueEmailKey extends Migration
      */
     public function up()
     {
-        Schema::table('administrators', function (Blueprint $table) {
+        Schema::table('tager_administrators', function (Blueprint $table) {
           $table->dropUnique('administrators_email_unique');
         });
     }
