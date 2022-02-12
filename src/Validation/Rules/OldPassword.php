@@ -1,6 +1,6 @@
 <?php
-namespace OZiTAG\Tager\Backend\Admin\Validation\Rules;
 
+namespace OZiTAG\Tager\Backend\Admin\Validation\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Exceptions\HttpResponseException;
