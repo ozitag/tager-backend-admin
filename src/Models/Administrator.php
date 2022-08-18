@@ -27,7 +27,7 @@ class Administrator extends Authenticatable
 
     public function roles()
     {
-        return $this->belongsToMany(Role::class, 'tager_administrator_roles', 'administrator_id', 'role_id');
+        return $this->belongsToMany(Role::class, 'tager_administrators_roles', 'administrator_id', 'role_id');
     }
 
     public function fields()
