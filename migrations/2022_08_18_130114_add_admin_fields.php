@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('administrator_id');
             $table->string('field');
-            $table->longText('value');
+            $table->longText('value')->nullable();
 
             $table->foreign('administrator_id')->references('id')->on('tager_administrators');
         });
