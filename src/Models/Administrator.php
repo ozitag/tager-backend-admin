@@ -25,17 +25,25 @@ class Administrator extends Authenticatable
         'password'
     ];
 
-    public function roles() {
-        return $this->belongsToMany(Role::class, 'tager_administrator_roles','administrator_id', 'role_id');
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'tager_administrator_roles', 'administrator_id', 'role_id');
     }
 
-    public function getScopesForRbac() {
+    public function fields()
+    {
+        return $this->hasMany(AdministratorField::class, 'administrator_id');
+    }
+
+    public function getScopesForRbac()
+    {
         return explode(',', $this->roles()
             ->pluck('scopes')
             ->implode(','));
     }
 
-    public function getRolesForRbac() {
+    public function getRolesForRbac()
+    {
         return $this->roles()
             ->pluck('tager_roles.id')
             ->toArray();

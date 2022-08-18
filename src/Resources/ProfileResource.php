@@ -3,7 +3,7 @@
 namespace OZiTAG\Tager\Backend\Admin\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use OZiTAG\Tager\Backend\Administrators\Resources\AdminRoleResource;
+use OZiTAG\Tager\Backend\Admin\Models\AdministratorRole;
 
 class ProfileResource extends JsonResource
 {
@@ -19,7 +19,13 @@ class ProfileResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-            'roles' => AdminRoleResource::collection($this->roles),
+            'roles' => $this->roles->map(function (AdministratorRole $role) {
+                return [
+                    'id' => $role->id,
+                    'name' => $role->name,
+                    'scopes' => $role->scopes ? explode(',', $role->scopes) : []
+                ];
+            })
         ];
     }
 }
