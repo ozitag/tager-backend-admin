@@ -10,7 +10,7 @@ class AdministratorRole extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'tager_administrator_roles';
+    protected $table = 'tager_administrators_roles';
 
     public $fillable = [
         'role_id', 'administrator_id'

@@ -16,7 +16,8 @@ class AdministratorRepository extends EloquentRepository
      * @param string $email
      * @return Administrator|null
      */
-    public function findByEmail(string $email): ?Administrator {
+    public function findByEmail(string $email): ?Administrator
+    {
         return $this->model->whereEmail($email)->first();
     }
 }
