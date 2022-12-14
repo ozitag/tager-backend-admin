@@ -9,6 +9,9 @@ class UploadFileController extends Controller
 {
     public function upload()
     {
-        return $this->serve(UploadFileFeature::class);
+        return $this->serve(UploadFileFeature::class, [
+            'supportUrl' => true,
+            'supportFile' => true
+        ]);
     }
 }
