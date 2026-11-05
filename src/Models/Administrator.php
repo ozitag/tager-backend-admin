@@ -5,10 +5,11 @@ namespace OZiTAG\Tager\Backend\Admin\Models;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\Contracts\OAuthenticatable;
 use Laravel\Passport\HasApiTokens;
 use OZiTAG\Tager\Backend\Rbac\Models\Role;
 
-class Administrator extends Authenticatable
+class Administrator extends Authenticatable implements OAuthenticatable
 {
     use Notifiable, HasApiTokens, SoftDeletes;
 
