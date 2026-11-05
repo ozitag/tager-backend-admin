@@ -12,9 +12,10 @@
     }
   ],
   "require": {
-    "ozitag/tager-backend-core": "^1.10",
-    "ozitag/tager-backend-auth": "^1.4",
-    "ozitag/tager-backend-fields": "^1.6"
+    "php": "^8.5",
+    "ozitag/tager-backend-core": "^2.0",
+    "ozitag/tager-backend-auth": "^2.0",
+    "ozitag/tager-backend-fields": "^2.0"
   },
   "autoload": {
     "psr-4": {
