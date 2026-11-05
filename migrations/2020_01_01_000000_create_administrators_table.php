@@ -22,13 +22,15 @@ class CreateAdministratorsTable extends Migration
             $table->timestamps();
         });
 
-        \Illuminate\Support\Facades\DB::table('administrators')->insert([
-            'name' => 'Vital Ozierski',
-            'email' => 'v.ozierski@ozitag.com',
-            'password' => \Illuminate\Support\Facades\Hash::make('admin'),
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
-        ]);
+        /*
+         * Здесь заводился администратор v.ozierski@ozitag.com с паролем
+         * 'admin'. Это значит, что каждая установка пакета поднималась с
+         * учёткой, чьи адрес и пароль опубликованы в исходниках, — войти
+         * мог кто угодно, кто знает, что проект на TAGER.
+         *
+         * Первого администратора теперь заводит проект сам. Уже созданную
+         * учётку снимает миграция revoke_seeded_administrator.
+         */
     }
 
     /**
