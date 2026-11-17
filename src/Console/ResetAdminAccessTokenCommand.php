@@ -41,8 +41,8 @@ class ResetAdminAccessTokenCommand extends Command
 
         $adminUser = $this->administratorRepository->first();
         if(!$adminUser){
-            $this->log('No admin found');
-            return;
+            $this->error('No admin found');
+            return self::FAILURE;
         }
 
         $this->administratorRepository->set($adminUser)->fillAndSave([
@@ -55,6 +55,9 @@ class ResetAdminAccessTokenCommand extends Command
             1
         );
 
-        echo "\n".'Access Token:'."\n\n".(string)$accessToken."\n\n";
+        // league/oauth2-server 9: у токена нет __toString(), только toString() (как в tager-backend-auth)
+        echo "\n".'Access Token:'."\n\n".$accessToken->toString()."\n\n";
+
+        return self::SUCCESS;
     }
 }
